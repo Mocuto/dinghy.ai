@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  <title>dinghy.ai</title>
+  <script src="priority-queue.js"></script>
+  <script src="engine.js"></script>
+  <script src="mgl/js/Dependencies/audio-fx.min.js"></script>
+  <script src="mgl/js/Dependencies/keyLib.js"></script>
+  <script src="mgl/js/Dependencies/preloadjs.min.js"></script>
+
+  <script src="mgl/js/mocu.js"></script>
+  <script src="mgl/js/point.js"></script>
+  <script src="mgl/js/pointer.js"></script>
+  <script src="mgl/js/event.js"></script>
+  <script src="mgl/js/action.js"></script>
+  <script src="mgl/js/timeslot.js"></script>
+  <script src="mgl/js/timeline.js"></script>
+  <script src="mgl/js/rgba.js"></script>
+  <script src="mgl/js/mocucameratraits.js"></script>
+  <script src="mgl/js/mocuobject.js"></script>
+  <script src="mgl/js/mocuanimation.js"></script>
+  <script src="mgl/js/mocusprite.js"></script>
+  <script src="mgl/js/mocubackground.js"></script>
+  <script src="mgl/js/mocutext.js"></script>
+  <script src="mgl/js/notification.js"></script>
+  <script src="mgl/js/mocugroup.js"></script>
+  <script src="mgl/js/mocutile.js"></script>
+  <script src="mgl/js/mocutilemap.js"></script>
+  <script src="mgl/js/mocustate.js"></script>
+  <script src="mgl/js/mocuzone.js"></script>
+  <script src="mgl/js/mocucamera.js"></script>
+  <script src="mgl/js/mocucamerazone.js"></script>
+  <script src="mgl/js/mocuemitter.js"></script>
+  <script src="mgl/js/mocumenu.js"></script>
+  <script src="mgl/js/mocumenuitem.js"></script>
+  <script src="mgl/js/mocusound.js"></script>
+  <script src="mgl/js/mocumusic.js"></script>
+  <script src="mgl/js/mocugame.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="game.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div class="main-container">
+    <h1>dinghy.ai</h1>
+    <p class="note">The world's first AI powered dinghy. Press start to see it in action.</p>
+    <div class="score">Score: 0</div>
+    <canvas id="myCanvas"></canvas>
+    <script>
+      MocuGame.targetResolutionWidth = 128;
+      MocuGame.prepareCanvas("myCanvas", new MocuGame.Point(128, 128), new MocuGame.Point(512, 512));
+
+      var sprite = new MocuGame.MocuSprite(new MocuGame.Point(0, 0), new MocuGame.Point(32, 32), "mgl/images/Mocuto.png");
+      sprite.addAnimation("Dance", "0,1 1,1 2,1 3,1 4,1", 10, true);
+      sprite.play("Dance");
+
+      var state = new MocuGame.GState(60);
+      // state.add(sprite);
+      MocuGame.init(state);
+      state.resetBoard()
+    </script>
+    <div class="controls">
+      <div class="start-button">Start</div>
+      <div class="reset-button">Reset</div>
+      <div class="pause-button">Pause</div>
+    </div>
+    <div>
+      <p>Adjust the points rewarded for each item, watch the AI adapt :)</p>
+    </div>
+
+    <div class="item-point">
+      <span class="blue-flag-icon icon"></span>
+      <input type="number" pointKey="blueFlag" class="point-input" name="blue-flag-points" id="blue-flag-points"
+        min="-100" max="100" value="1">
+    </div>
+    <div class="item-point">
+      <span class="red-flag-icon icon"></span>
+      <input type="number" pointKey="redFlag" class="point-input" name="red-flag-points" id="red-flag-points" min="-100"
+        max="100" value="10">
+
+    </div>
+    <div class="item-point">
+      <span class="rock-icon icon"></span>
+      <input type="number" pointKey="rock" class="point-input" name="rock-points" id="rock-points" min="-100" max="100"
+        value="-2">
+    </div>
+    <div>
+      <h1>About the game</h1>
+      <p class="note">
+        This game demonstrates an AI algorithm called <a href="https://www.youtube.com/watch?v=-L-WgKMFuhE">"A*" (pronounced A star)</a>
+        which enables the dinghy to efficiently collect the yellow and red flags.
+        <br/>
+        <br/>
+        A* is an algorithm that helps you find the most efficient route between point A and point B.
+        <br/>
+        <br/>
+        You can think of it as a very basic version of Google Maps directions.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

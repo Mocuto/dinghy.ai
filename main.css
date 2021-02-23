@@ -1,0 +1,83 @@
+@font-face {
+  font-family: ArcadeBoy;
+  src: url(fipps.otf);
+}
+
+@font-face {
+  font-family: ArcadeMan;
+  src: url(Minecraft.ttf);
+}
+
+body {
+  background-image: url('sprites/pagebg.png');
+
+}
+
+body * {
+  font-family: ArcadeBoy;
+}
+
+.note {
+  font-family: ArcadeMan;
+  font-size: 24px;
+}
+
+.main-container {
+  max-width: 548px;
+  margin: auto;
+}
+
+.score {
+  text-transform: uppercase;
+}
+
+.controls {
+  margin-bottom: 8px;
+}
+.controls > div {
+  background-color: #00619f;
+  color: white;
+  text-transform: uppercase;
+  width: 512px;
+  margin-top:8px;
+  padding:16px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.controls > div:hover {
+  opacity:0.6;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  float: left;
+  margin-right: 16px;
+}
+
+.blue-flag-icon {
+  background: url(yellowflag-2x.png) 0 0;
+}
+
+.red-flag-icon {
+  background: url(yellowflag-2x.png) 0 -64px;
+}
+
+.rock-icon {
+  background: url(yellowflag-2x.png) 0 -128px;
+}
+
+.item-point {
+  margin-bottom:16px;
+}
+
+.item-point > input {
+  height: 64px;
+  width: 128px;
+  padding-left: 8px;
+}
